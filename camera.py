@@ -32,6 +32,13 @@ def take_picture():
     return stream.read()
 
 
+def save_to_file(str_data):
+    import datetime
+    filename = datetime.datetime.now().strftime("%H_%M_%S_%Y_%m_%d") + ".jpg"
+    with open(filename, "wb") as out:
+        out.write(str_data)
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='Takes a picture, uploads it to MS Computer Vision API and prints categories')
@@ -42,6 +49,9 @@ if __name__ == '__main__':
 
     print "Taking a picture..."
     img = take_picture()
+
+    save_to_file(img)
+
     print "Analyzing the image..."
 
     result = analysis.process_image(img, api_key)
