@@ -34,7 +34,6 @@ def take_picture():
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='Takes a picture, uploads it to MS Computer Vision API and prints categories')
-    parser.add_argument('path', help='Path to the image file')
     parser.add_argument('--apikey', help='Key for accessing MS Computer Vision API')
     args = parser.parse_args()
     config = load_config()
