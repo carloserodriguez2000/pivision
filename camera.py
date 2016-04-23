@@ -39,8 +39,10 @@ if __name__ == '__main__':
     config = load_config()
     api_key = args.apikey or config[u'ms_vision_api_key']
 
-    print "Reading image from %s" % args.path
+    print "Taking a picture..."
     img = take_picture()
+    print "Analyzing the image..."
+
     result = analysis.process_image(img, api_key)
     pprint.pprint(result)
     print result[u'categories']
