@@ -28,6 +28,7 @@ def take_picture():
         camera.start_preview()
         time.sleep(2)
         camera.capture(stream, 'jpeg')
+    stream.seek(0)
     return stream.read()
 
 
